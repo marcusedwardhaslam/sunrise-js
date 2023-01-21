@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "CommonJS",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "outDir": "./lib",
+    "rootDir": "src",
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "ES2022",
+    "lib": ["ES2022"]
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["./src/**.spec.ts", "node_modules"]
+}
