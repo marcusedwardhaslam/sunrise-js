@@ -1,0 +1,8 @@
+.editorconfig
+.eslintrc
+.gitignore
+.nvmrc
+.prettierrc
+src/
+tsconfig.json
+yarn-error.log

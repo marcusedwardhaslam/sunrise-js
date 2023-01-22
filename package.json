@@ -1,6 +1,6 @@
 {
   "name": "sunrise-js",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A way to determine when the sun will rise and set based on your latitude/longitude",
   "main": "lib/index.js",
   "repository": "https://github.com/marcusedwardhaslam/sunrise-js",
@@ -36,5 +36,7 @@
     "start": "nodemon",
     "test": "NODE_ENV=test jest",
     "build": "tsc"
-  }
+  },
+  "prepublish": "build",
+  "types": "index.d.ts"
 }
