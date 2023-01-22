@@ -2,7 +2,7 @@
 
 Based on [the sunrise equation](https://en.wikipedia.org/wiki/Sunrise_equation#Complete_calculation_on_Earth) calculates a Javascript UTC Date approximating when sunrise and sunset will happen based on a specified latitude, longitude and Javascript Date.
 
-Implementation inaccuracies were fixed by following the code in this [rust-sunrise crate](https://github.com/nathan-osman/rust-sunrise).
+Largely inspired by this [rust-sunrise crate](https://github.com/nathan-osman/rust-sunrise).
 
 ## Usage
 

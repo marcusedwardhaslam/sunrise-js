@@ -1,40 +1,48 @@
-import { declination as declinationFn } from './declination';
-import { eclipticLongitude as eclipticLongitudeFn } from './eclipticLongitude';
-import { equationOfCentre as equationOfCentreFn } from './equationOfCentre';
-import { hourAngle as hourAngleFn } from './hourAngle';
+import { declination as getDeclination } from './declination';
+import { eclipticLongitude as getEclipticLongitude } from './eclipticLongitude';
+import { equationOfTheCentre } from './equationOfCentre';
+import { hourAngle as getHourAngle } from './hourAngle';
 import { julianToUnix } from './julian';
-import { meanSolarTime } from './meanSolarTime';
-import { solarMeanAnomaly } from './solarMeanAnomaly';
-import { solarTransit as solarTransitFn } from './solarTransit';
+import { meanSolarTime as getMeanSolarTime } from './meanSolarTime';
+import { solarMeanAnomaly as getSolarMeanAnomaly } from './solarMeanAnomaly';
+import { solarTransit as getSolarTransit } from './solarTransit';
 
 interface Coordinates {
   latitude: number;
   longitude: number;
 }
 
-interface TwilightObject {
+export interface TwilightObject {
   sunrise: Date;
   sunset: Date;
 }
 
-export function twilight(coords: Coordinates, date: Date): TwilightObject {
+export default function twilight(
+  coords: Coordinates,
+  date: Date
+): TwilightObject {
   date.setUTCHours(12, 0, 0, 0);
-  const day = meanSolarTime(coords.longitude, date.getTime() / 1000);
-  const solarAnomaly = solarMeanAnomaly(day);
-  const equationOfCentre = equationOfCentreFn(solarAnomaly);
-  const eclipticLongitude = eclipticLongitudeFn(
+  const meanSolarTime = getMeanSolarTime(
+    coords.longitude,
+    date.getTime() / 1000
+  );
+  const solarAnomaly = getSolarMeanAnomaly(meanSolarTime);
+  const equationOfCentre = equationOfTheCentre(solarAnomaly);
+  const eclipticLongitude = getEclipticLongitude(
     solarAnomaly,
     equationOfCentre,
-    day
+    meanSolarTime
   );
-  const solarTransit = solarTransitFn(day, solarAnomaly, eclipticLongitude);
-  const declination = declinationFn(eclipticLongitude);
-  const hourAngle = hourAngleFn(coords.latitude, declination);
+  const solarTransit = getSolarTransit(
+    meanSolarTime,
+    solarAnomaly,
+    eclipticLongitude
+  );
+  const declination = getDeclination(eclipticLongitude);
+  const hourAngle = getHourAngle(coords.latitude, declination);
   const frac = hourAngle / 360;
-  const sunrise = solarTransit - frac;
-  const sunset = solarTransit + frac;
   return {
-    sunrise: new Date(julianToUnix(sunrise) * 1000),
-    sunset: new Date(julianToUnix(sunset) * 1000),
+    sunrise: new Date(julianToUnix(solarTransit - frac) * 1000),
+    sunset: new Date(julianToUnix(solarTransit + frac) * 1000),
   };
 }

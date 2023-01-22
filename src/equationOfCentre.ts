@@ -1,6 +1,6 @@
 import { DEG } from './constants';
 
-export function equationOfCentre(solarAnomaly: number) {
+export function equationOfTheCentre(solarAnomaly: number) {
   const anomalyInRad = solarAnomaly * DEG;
   const anomalySin = Math.sin(anomalyInRad);
   const anomalySin2 = Math.sin(anomalyInRad * 2);
