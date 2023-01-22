@@ -1,6 +1,6 @@
 {
   "name": "sunrise-js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A way to determine when the sun will rise and set based on your latitude/longitude",
   "keywords": [
     "sunrise",
