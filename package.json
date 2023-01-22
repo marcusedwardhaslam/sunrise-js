@@ -1,6 +1,6 @@
 {
   "name": "sunrise-js",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A way to determine when the sun will rise and set based on your latitude/longitude",
   "keywords": [
     "sunrise",
@@ -11,7 +11,7 @@
   "types": "lib/index.d.ts",
   "repository": "https://github.com/marcusedwardhaslam/sunrise-js",
   "author": "Marcus Haslam <marcusedwardhaslam@gmail.com> (https://marcusehaslam.co.uk)",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": false,
   "devDependencies": {
     "@types/jest": "^29.2.6",
