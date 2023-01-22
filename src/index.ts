@@ -17,10 +17,7 @@ export interface TwilightObject {
   sunset: Date;
 }
 
-export default function twilight(
-  coords: Coordinates,
-  date: Date
-): TwilightObject {
+export function twilight(coords: Coordinates, date: Date): TwilightObject {
   date.setUTCHours(12, 0, 0, 0);
   const meanSolarTime = getMeanSolarTime(
     coords.longitude,
@@ -47,6 +44,6 @@ export default function twilight(
   };
 }
 
-export { twilight };
+export default twilight;
 
 module.exports = twilight;
