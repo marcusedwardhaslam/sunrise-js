@@ -1,4 +1,4 @@
-import { twilight } from './';
+import twilight from './';
 
 describe('when using the sunrise/sunset library', () => {
   describe('and attempting to find when the twilight hours are', () => {
