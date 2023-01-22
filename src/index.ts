@@ -47,4 +47,6 @@ export default function twilight(
   };
 }
 
+export { twilight };
+
 module.exports = twilight;
