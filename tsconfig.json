@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ES2022", "dom"],
-    "module": "commonjs",
+    "module": "CommonJS",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "outDir": "./lib",
@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "strict": true,
     "strictNullChecks": true,
-    "target": "ES2022",
+    "target": "ES6",
 
   },
   "include": ["./src/**/*"],
