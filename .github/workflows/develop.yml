@@ -1,0 +1,19 @@
+name: npm-publish
+
+on:
+    push:
+        branches:
+            - develop
+
+jobs:
+    lint-pretty-and-test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - run: yarn
+            - run: yarn lint:ci
+            - run: yarn pretty:ci
+            - run: yarn test
