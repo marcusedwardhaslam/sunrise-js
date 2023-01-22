@@ -46,3 +46,5 @@ export default function twilight(
     sunset: new Date(julianToUnix(solarTransit + frac) * 1000),
   };
 }
+
+module.exports = twilight;
